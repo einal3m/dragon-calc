@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import DragonBreedingCalculator from './dragon-breeding-calculator.jsx';
+import DragonBreedingCalculator from './js/dragon-breeding-calculator.jsx';
 
-require("./style.css");
+require("./css/dragon.css");
 require('babel-polyfill');
 
 ReactDOM.render(<DragonBreedingCalculator/>, document.getElementById('container'));
