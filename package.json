@@ -1,0 +1,26 @@
+{
+  "name": "dragon-calc",
+  "version": "1.0.0",
+  "description": "Dragon Breeding Calculator",
+  "main": "bundle.js",
+  "scripts": {
+    "start": "webpack-dev-server --progress --colors",
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melm73/dragon-calc.git"
+  },
+  "author": "melm73",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/melm73/dragon-calc/issues"
+  },
+  "homepage": "https://github.com/melm73/dragon-calc#readme",
+  "devDependencies": {
+    "css-loader": "^0.26.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
