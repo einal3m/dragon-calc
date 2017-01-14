@@ -1,12 +1,27 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
-const DragonPicker = () => (
-  <select className="form-control">
-    <option>Dragon 1</option>
-    <option>Dragon 2</option>
-    <option>Dragon 3</option>
-    <option>Dragon 4</option>
-  </select>
-);
+export default class DragonPicker extends React.Component {
+  renderOptions() {
+    return this.props.dragons.map((dragon, i) => (
+      <option key={dragon.name} value={i}>{dragon.name}</option>
+    ));
+  }
 
-export default DragonPicker;
+  render() {
+    return (
+      <select className="form-control">
+        {this.renderOptions()}
+      </select>
+    );
+  }
+}
+
+DragonPicker.propTypes = {
+  dragons: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+  })),
+};
+
+DragonPicker.defaultProps = {
+  dragons: [],
+};
