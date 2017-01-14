@@ -4,6 +4,7 @@ import DragonBreedingCalculator from '../dragon-breeding-calculator.jsx';
 import DragonPicker from '../dragon-picker';
 import DragonTable from '../dragon-table';
 import dragons from '../../data/dragons';
+import * as breedingCalculator from '../../actions/breeding-calculator';
 
 describe('DragonBreedingCalculator', () => {
   describe('render', () => {
@@ -39,9 +40,22 @@ describe('DragonBreedingCalculator', () => {
       const rightPicker = dragonCalc.find(DragonPicker).at(1);
       expect(rightPicker.prop('value')).toEqual(null);
     });
+
+    it('initial breeding result is an empty array', () => {
+      const dragonCalc = shallow(<DragonBreedingCalculator />);
+      expect(dragonCalc.state().breedingResult).toEqual([]);
+
+      const dragonTable = dragonCalc.childAt(2);
+      expect(dragonTable.prop('dragons')).toEqual([]);
+    });
   });
 
   describe('events', () => {
+    beforeEach(() => {
+      const breedingResult = [{ name: 'dragon one', elements: ['air'], breedingTime: '1d' }];
+      spyOn(breedingCalculator, 'default').and.returnValue(breedingResult);
+    });
+
     it('on change right dragon, sets rightDragon state', () => {
       const dragonCalc = mount(<DragonBreedingCalculator />);
       const rightPicker = dragonCalc.find(DragonPicker).at(1);
@@ -50,6 +64,8 @@ describe('DragonBreedingCalculator', () => {
 
       expect(dragonCalc.state().rightDragon).toEqual(5);
       expect(rightPicker.prop('value')).toEqual(5);
+
+      expect(breedingCalculator.default).not.toHaveBeenCalled();
     });
 
     it('on change right dragon, sets rightDragon state', () => {
@@ -60,6 +76,27 @@ describe('DragonBreedingCalculator', () => {
 
       expect(dragonCalc.state().leftDragon).toEqual(4);
       expect(leftPicker.prop('value')).toEqual(4);
+
+      expect(breedingCalculator.default).not.toHaveBeenCalled();
+    });
+
+    it('on change right and left dragons, sets state and calls calculator', () => {
+      const dragonCalc = mount(<DragonBreedingCalculator />);
+      const leftPicker = dragonCalc.find(DragonPicker).at(0);
+      const rightPicker = dragonCalc.find(DragonPicker).at(1);
+
+      leftPicker.prop('onChange')(4);
+      rightPicker.prop('onChange')(5);
+
+      expect(dragonCalc.state().leftDragon).toEqual(4);
+      expect(leftPicker.prop('value')).toEqual(4);
+      expect(dragonCalc.state().rightDragon).toEqual(5);
+      expect(rightPicker.prop('value')).toEqual(5);
+
+      expect(breedingCalculator.default).toHaveBeenCalledWith(4, 5);
+      expect(dragonCalc.state().breedingResult).toEqual(
+        [{ name: 'dragon one', elements: ['air'], breedingTime: '1d' }]
+      );
     });
   });
 });

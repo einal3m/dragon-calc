@@ -2,6 +2,7 @@ import React from 'react';
 import DragonPicker from './dragon-picker';
 import DragonTable from './dragon-table';
 import dragons from '../data/dragons';
+import breedingCalculator from '../actions/breeding-calculator';
 
 export default class DragonBreedingCalculator extends React.Component {
   constructor() {
@@ -9,15 +10,24 @@ export default class DragonBreedingCalculator extends React.Component {
     this.state = {
       leftDragon: null,
       rightDragon: null,
+      breedingResult: [],
     };
   }
 
   handleChangeLeftDragon = (dragonIndex) => {
     this.setState({ leftDragon: dragonIndex });
+    this.calculate(dragonIndex, this.state.rightDragon);
   };
 
   handleChangeRightDragon = (dragonIndex) => {
     this.setState({ rightDragon: dragonIndex });
+    this.calculate(this.state.leftDragon, dragonIndex);
+  };
+
+  calculate = (leftDragon, rightDragon) => {
+    if (leftDragon && rightDragon) {
+      this.setState({ breedingResult: breedingCalculator(leftDragon, rightDragon) });
+    }
   };
 
   render() {
@@ -40,7 +50,7 @@ export default class DragonBreedingCalculator extends React.Component {
             />
           </div>
         </div>
-        <DragonTable dragons={dragons} />
+        <DragonTable dragons={this.state.breedingResult} />
       </div>
     );
   }
