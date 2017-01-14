@@ -1,16 +1,46 @@
 import React from 'react';
 import DragonPicker from './dragon-picker';
+import DragonTable from './dragon-table';
 import dragons from '../data/dragons';
 
 export default class DragonBreedingCalculator extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      leftDragon: null,
+      rightDragon: null,
+    };
+  }
+
+  handleChangeLeftDragon = (dragonIndex) => {
+    this.setState({ leftDragon: dragonIndex });
+  };
+
+  handleChangeRightDragon = (dragonIndex) => {
+    this.setState({ rightDragon: dragonIndex });
+  };
+
   render() {
     return (
       <div className="container">
-        <h1>This is the title</h1>
+        <h1>Dragonvale World Breeding Calculator</h1>
         <div className="row">
-          <div className="col-xs-6"><DragonPicker dragons={dragons} /></div>
-          <div className="col-xs-6"><DragonPicker dragons={dragons} /></div>
+          <div className="col-xs-6">
+            <DragonPicker
+              dragons={dragons}
+              value={this.state.leftDragon}
+              onChange={this.handleChangeLeftDragon}
+            />
+          </div>
+          <div className="col-xs-6">
+            <DragonPicker
+              dragons={dragons}
+              value={this.state.rightDragon}
+              onChange={this.handleChangeRightDragon}
+            />
+          </div>
         </div>
+        <DragonTable dragons={dragons} />
       </div>
     );
   }
