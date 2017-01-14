@@ -1,6 +1,6 @@
 import { AIR, EARTH, FIRE, FAIRY, FROZEN, WATER, JUNGLE } from './dragon-elements';
 
-export default [
+const dragons = [
   { name: 'Air', elements: [AIR] },
   { name: 'Fire', elements: [FIRE] },
   { name: 'Earth', elements: [EARTH] },
@@ -9,3 +9,5 @@ export default [
   { name: 'Jungle', elements: [JUNGLE] },
   { name: 'Water', elements: [WATER] },
 ];
+
+export default dragons;
