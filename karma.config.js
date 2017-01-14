@@ -19,9 +19,11 @@ module.exports = function exports(config) {
           { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
           { test: /\.jsx$/, exclude: /node_modules/, loader: 'babel' },
           { test: /\.css$/, exclude: /node_modules/, loader: 'style!css!sass' },
+          { test: /\.json$/, loader: 'json-loader' },
         ],
       },
       watch: true,
+      resolve: { extensions: ['', '.js', '.jsx'] },
     },
 
     autoWatch: true,
