@@ -52,7 +52,7 @@ describe('DragonPicker', () => {
   it('calls the onChange prop when user selects a dragon', () => {
     const picker = shallow(<DragonPicker dragons={dragons} onChange={onChangeSpy} />);
 
-    picker.prop('onChange')({ target: { value: 4 } });
+    picker.prop('onChange')({ target: { value: '4' } });
 
     expect(onChangeSpy).toHaveBeenCalledWith(4);
   });

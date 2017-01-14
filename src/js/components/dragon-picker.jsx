@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 export default class DragonPicker extends React.Component {
-  handleChange = (event) => this.props.onChange(event.target.value);
+  handleChange = (event) => this.props.onChange(Number(event.target.value));
 
   renderOptions() {
     const options = this.props.dragons.map((dragon, i) => (
