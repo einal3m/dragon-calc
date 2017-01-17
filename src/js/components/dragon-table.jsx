@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import DragonElements from './dragon-elements';
 
 export default class DragonTable extends React.Component {
 
@@ -6,7 +7,7 @@ export default class DragonTable extends React.Component {
     return this.props.dragons.map(dragon => (
       <tr key={dragon.name}>
         <td>{dragon.name}</td>
-        <td>{dragon.elements.join('/')}</td>
+        <td><DragonElements elements={dragon.elements} /></td>
         <td>{dragon.breedingTime}</td>
       </tr>
     ));

@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import DragonTable from '../dragon-table';
+import DragonElements from '../dragon-elements';
 
 describe('DragonTable', () => {
   const dragons = [
@@ -36,13 +37,15 @@ describe('DragonTable', () => {
     const firstRow = rows.at(0);
     expect(firstRow.children().length).toEqual(3);
     expect(firstRow.childAt(0).text()).toEqual('dragon one');
-    expect(firstRow.childAt(1).text()).toEqual('air/earth');
+    expect(firstRow.childAt(1).childAt(0).type()).toEqual(DragonElements);
+    expect(firstRow.childAt(1).childAt(0).prop('elements')).toEqual(['air', 'earth']);
     expect(firstRow.childAt(2).text()).toEqual('20min');
 
     const secondRow = rows.at(1);
     expect(secondRow.children().length).toEqual(3);
     expect(secondRow.childAt(0).text()).toEqual('dragon two');
-    expect(secondRow.childAt(1).text()).toEqual('fire/jungle');
+    expect(secondRow.childAt(1).childAt(0).type()).toEqual(DragonElements);
+    expect(secondRow.childAt(1).childAt(0).prop('elements')).toEqual(['fire', 'jungle']);
     expect(secondRow.childAt(2).text()).toEqual('1h 5m');
   });
 });
