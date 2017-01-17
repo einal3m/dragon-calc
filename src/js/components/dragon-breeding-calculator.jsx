@@ -3,8 +3,9 @@ import DragonPicker from './dragon-picker';
 import DragonTable from './dragon-table';
 import ElementIcon from './element-icon';
 import DragonElements from './dragon-elements';
-import dragons from '../data/dragons';
+import dragons from '../data/dragons.csv';
 import breedingCalculator from '../actions/breeding-calculator';
+import convert from '../actions/dragon-parser';
 
 export default class DragonBreedingCalculator extends React.Component {
   constructor() {
@@ -13,6 +14,7 @@ export default class DragonBreedingCalculator extends React.Component {
       leftDragon: null,
       rightDragon: null,
       breedingResult: [],
+      dragons: convert(dragons),
     };
   }
 
@@ -27,13 +29,15 @@ export default class DragonBreedingCalculator extends React.Component {
   };
 
   calculate = (leftDragon, rightDragon) => {
-    if (leftDragon && rightDragon) {
-      this.setState({ breedingResult: breedingCalculator(leftDragon, rightDragon) });
+    if ((leftDragon != null) && (rightDragon != null)) {
+      this.setState({ breedingResult: breedingCalculator(this.state.dragons, leftDragon, rightDragon) });
     }
   };
 
-  leftDragonElements = () => this.state.leftDragon ? dragons[this.state.leftDragon].elements : [];
-  rightDragonElements = () => this.state.rightDragon ? dragons[this.state.rightDragon].elements : [];
+  leftDragonElements = () =>
+    this.state.leftDragon != null ? this.state.dragons[this.state.leftDragon].elements : [];
+  rightDragonElements = () =>
+    this.state.rightDragon != null ? this.state.dragons[this.state.rightDragon].elements : [];
 
   render() {
     return (
@@ -42,7 +46,7 @@ export default class DragonBreedingCalculator extends React.Component {
         <div className="row">
           <div className="col-xs-6">
             <DragonPicker
-              dragons={dragons}
+              dragons={this.state.dragons}
               value={this.state.leftDragon}
               onChange={this.handleChangeLeftDragon}
             />
@@ -50,7 +54,7 @@ export default class DragonBreedingCalculator extends React.Component {
           </div>
           <div className="col-xs-6">
             <DragonPicker
-              dragons={dragons}
+              dragons={this.state.dragons}
               value={this.state.rightDragon}
               onChange={this.handleChangeRightDragon}
             />

@@ -1,8 +1,7 @@
-import dragons from '../data/dragons';
 
 const elements = (...elementArrays) => new Set([].concat(...elementArrays));
 
-export default function breedingCalculator(leftDragon, rightDragon) {
+export default function breedingCalculator(dragons, leftDragon, rightDragon) {
   const selectedElements = elements(dragons[leftDragon].elements, dragons[rightDragon].elements);
   const result = [];
 

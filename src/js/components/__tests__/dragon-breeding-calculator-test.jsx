@@ -4,10 +4,19 @@ import DragonBreedingCalculator from '../dragon-breeding-calculator.jsx';
 import DragonPicker from '../dragon-picker';
 import DragonElements from '../dragon-elements';
 import DragonTable from '../dragon-table';
-import dragons from '../../data/dragons';
+import * as convert from '../../actions/dragon-parser';
 import * as breedingCalculator from '../../actions/breeding-calculator';
 
 describe('DragonBreedingCalculator', () => {
+  const dragons = [
+    { name: 'Dragon One', elements: ['fire', 'jungle'], breedingTime: '2d' },
+    { name: 'Dragon Two', elements: ['earth'], breedingTime: '1d' },
+  ];
+
+  beforeEach(() => {
+    spyOn(convert, 'default').and.returnValue(dragons);
+  });
+
   describe('render', () => {
     it('renders a title, two dragon pickers with elements and a table', () => {
       const dragonCalc = shallow(<DragonBreedingCalculator />);
@@ -68,10 +77,10 @@ describe('DragonBreedingCalculator', () => {
       const rightPicker = dragonCalc.find(DragonPicker).at(1);
       const rightElements = dragonCalc.find(DragonElements).at(1);
 
-      rightPicker.prop('onChange')(5);
+      rightPicker.prop('onChange')(1);
 
-      expect(dragonCalc.state().rightDragon).toEqual(5);
-      expect(rightPicker.prop('value')).toEqual(5);
+      expect(dragonCalc.state().rightDragon).toEqual(1);
+      expect(rightPicker.prop('value')).toEqual(1);
       expect(rightElements.prop('elements')).toEqual(['earth']);
 
       expect(breedingCalculator.default).not.toHaveBeenCalled();
@@ -82,10 +91,10 @@ describe('DragonBreedingCalculator', () => {
       const leftPicker = dragonCalc.find(DragonPicker).at(0);
       const leftElements = dragonCalc.find(DragonElements).at(0);
 
-      leftPicker.prop('onChange')(4);
+      leftPicker.prop('onChange')(0);
 
-      expect(dragonCalc.state().leftDragon).toEqual(4);
-      expect(leftPicker.prop('value')).toEqual(4);
+      expect(dragonCalc.state().leftDragon).toEqual(0);
+      expect(leftPicker.prop('value')).toEqual(0);
       expect(leftElements.prop('elements')).toEqual(['fire', 'jungle']);
 
       expect(breedingCalculator.default).not.toHaveBeenCalled();
@@ -96,15 +105,15 @@ describe('DragonBreedingCalculator', () => {
       const leftPicker = dragonCalc.find(DragonPicker).at(0);
       const rightPicker = dragonCalc.find(DragonPicker).at(1);
 
-      leftPicker.prop('onChange')(4);
-      rightPicker.prop('onChange')(5);
+      leftPicker.prop('onChange')(1);
+      rightPicker.prop('onChange')(0);
 
-      expect(dragonCalc.state().leftDragon).toEqual(4);
-      expect(leftPicker.prop('value')).toEqual(4);
-      expect(dragonCalc.state().rightDragon).toEqual(5);
-      expect(rightPicker.prop('value')).toEqual(5);
+      expect(dragonCalc.state().leftDragon).toEqual(1);
+      expect(leftPicker.prop('value')).toEqual(1);
+      expect(dragonCalc.state().rightDragon).toEqual(0);
+      expect(rightPicker.prop('value')).toEqual(0);
 
-      expect(breedingCalculator.default).toHaveBeenCalledWith(4, 5);
+      expect(breedingCalculator.default).toHaveBeenCalledWith(dragons, 1, 0);
       expect(dragonCalc.state().breedingResult).toEqual(
         [{ name: 'dragon one', elements: ['air'], breedingTime: '1d' }]
       );

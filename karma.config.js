@@ -21,7 +21,13 @@ module.exports = function exports(config) {
           { test: /\.css$/, exclude: /node_modules/, loader: 'style!css!sass' },
           { test: /\.json$/, loader: 'json-loader' },
           { test: /\.png/, loader: 'url-loader?limit=8192' },
+          { test: /\.csv$/, loader: 'csv-loader' },
         ],
+      },
+      csv: {
+        dynamicTyping: true,
+        header: true,
+        skipEmptyLines: true,
       },
       watch: true,
       resolve: { extensions: ['', '.js', '.jsx'] },
