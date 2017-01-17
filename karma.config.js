@@ -20,6 +20,7 @@ module.exports = function exports(config) {
           { test: /\.jsx$/, exclude: /node_modules/, loader: 'babel' },
           { test: /\.css$/, exclude: /node_modules/, loader: 'style!css!sass' },
           { test: /\.json$/, loader: 'json-loader' },
+          { test: /\.png/, loader: 'url-loader?limit=8192' },
         ],
       },
       watch: true,

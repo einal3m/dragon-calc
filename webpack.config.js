@@ -10,6 +10,7 @@ module.exports = {
       { test: /\.jsx$/, exclude: /node_modules/, loader: 'babel-loader' },
       { test: /\.css$/, loader: 'style!css' },
       { test: /\.json$/, loader: 'json-loader' },
+      { test: /\.png/, loader: 'url-loader?limit=8192' },
     ],
   },
   resolve: {
