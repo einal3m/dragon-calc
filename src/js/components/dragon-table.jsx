@@ -15,7 +15,7 @@ export default class DragonTable extends React.Component {
 
   render() {
     return (
-      <table className="table table-bordered">
+      <table className="table">
         <thead>
           <tr>
             <th>Name</th>

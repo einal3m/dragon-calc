@@ -1,3 +1,32 @@
 body {
   background: #AF7AC5;
+
+  h3 {
+    color: #512E5F;
+    //margin-top: 0;
+    margin-bottom: 5px;
+  }
+  h5 {
+    color: white;
+    margin-top: 5px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #9B59B6;
+  }
+
+  //hr {
+  //  color: #512E5F;
+  //}
+  #container {
+    table {
+      th, td {
+        border-color: #9B59B6;
+      }
+      th {
+        color: #512E5F;
+      }
+      td {
+        color: white;
+      }
+    }
+  }
 }

@@ -42,7 +42,8 @@ export default class DragonBreedingCalculator extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1>Dragonvale World Breeding Calculator</h1>
+        <h3>Breeding Calculator</h3>
+        <h5>Dragonvale World</h5>
         <div className="row">
           <div className="col-xs-6">
             <DragonPicker

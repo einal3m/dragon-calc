@@ -22,10 +22,14 @@ describe('DragonBreedingCalculator', () => {
       const dragonCalc = shallow(<DragonBreedingCalculator />);
 
       const heading = dragonCalc.childAt(0);
-      expect(heading.type()).toEqual('h1');
-      expect(heading.text()).toEqual('Dragonvale World Breeding Calculator');
+      expect(heading.type()).toEqual('h3');
+      expect(heading.text()).toEqual('Breeding Calculator');
 
-      const pickers = dragonCalc.childAt(1);
+      const subHeading = dragonCalc.childAt(1);
+      expect(subHeading.type()).toEqual('h5');
+      expect(subHeading.text()).toEqual('Dragonvale World');
+
+      const pickers = dragonCalc.childAt(2);
       const leftPicker = pickers.childAt(0).childAt(0);
       expect(leftPicker.type()).toEqual(DragonPicker);
       expect(leftPicker.prop('dragons')).toEqual(dragons);
@@ -40,7 +44,7 @@ describe('DragonBreedingCalculator', () => {
       expect(rightElements.type()).toEqual(DragonElements);
       expect(rightElements.prop('elements')).toEqual([]);
 
-      const dragonTable = dragonCalc.childAt(2);
+      const dragonTable = dragonCalc.childAt(3);
       expect(dragonTable.type()).toEqual(DragonTable);
     });
 
@@ -61,7 +65,7 @@ describe('DragonBreedingCalculator', () => {
       const dragonCalc = shallow(<DragonBreedingCalculator />);
       expect(dragonCalc.state().breedingResult).toEqual([]);
 
-      const dragonTable = dragonCalc.childAt(2);
+      const dragonTable = dragonCalc.childAt(3);
       expect(dragonTable.prop('dragons')).toEqual([]);
     });
   });
