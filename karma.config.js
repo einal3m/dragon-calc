@@ -18,7 +18,7 @@ module.exports = function exports(config) {
         loaders: [
           { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
           { test: /\.jsx$/, exclude: /node_modules/, loader: 'babel' },
-          { test: /\.css$/, exclude: /node_modules/, loader: 'style!css!sass' },
+          { test: /\.scss$/, exclude: /node_modules/, loader: 'style!css!sass' },
           { test: /\.json$/, loader: 'json-loader' },
           { test: /\.png/, loader: 'url-loader?limit=8192' },
           { test: /\.csv$/, loader: 'csv-loader' },
