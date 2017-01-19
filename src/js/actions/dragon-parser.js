@@ -10,5 +10,7 @@ export default function convert(dragonsFromCsv) {
     stars: dragon.stars,
     breedingTime: dragon.breedingTime,
     enchantedBreedingTime: dragon.enchantedBreedingTime,
+    breedable: dragon.breedable === 1,
+    breedsAs: dragon.breedsAs ? convertElements(dragon.breedsAs) : null,
   }));
 }

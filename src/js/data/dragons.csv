@@ -1,73 +1,71 @@
-name,elements,stars,breedingTime,enchantedBreedingTime
-Fire,fire,1,30m,50m
-Jungle,jungle,1,20m,2m
-Wildfire,fire/jungle,2,20m,30m
-Flytrap,jungle/fire,2,25m,45m
-Venom,fire/jungle,3,45m,1h 10m
-Earth,earth,1,10m,10m
-Thermal,fire/earth,2,4h,6h 30m
-Magma,earth/fire,2,2h 45m,4h 25m
-Oasis,jungle/earth,2,1h 55m,3h 05m
-Underbrush,earth/jungle,2,1h 25m,2h 15m
-Cinder,fire/earth/jungle,3,2h 05m,1h 35m
-Frozen,frozen,1,1h,1h 40m
-Frostburn,fire/frozen,2,3h,4h 55m
-Thaw,frozen/fire,2,2h,3h 15m
-Alpine,jungle/frozen,2,1h 25m,2h 15m
-Fir,frozen/jungle,2,1h,1h 40m
-Wooly,earth/frozen,2,8h 30m,14h
-Tundra,frozen/earth,2,12h,19h 30m
-Water,water,1,4h,6h 30m
-Geyser,fire/water,2,1:55,3:10
-Newt,water/fire,2,1:15,2:00
-Fern,jungle/water,2,0:50,1:25
-Tropical,water/jungle,2,0:40,1:00
-Canyon,earth/water,2,5:10,8:30
-Dune,earth/water,3,11:30,18:30
-Shore,water/earth,2,9:20,15:00
-Fossil,earth/water/frozen,3,15:30,25:00
-Polar,water/frozen,2,7:30,12:00
-Totem,epic,4,24:00,28:00
-Hieroglyph,epic,4,24:00,28:00
-Kaiju,sunken,4,36:00,42:00
-Fairy,fairy,1,6:00,9:45
-Imp,fire/fairy,2,0:50,1:25
-Foxglow,fairy/fire,2,4:40,7:35
-Glade,jungle/fairy,2,0:25,0:45
-Iris,fairy/jungle,2,8:50,13:15
-Labyrinth,earth/fairy,2,3:35,5:55
-Elfin,fairy/earth,2,8:25,13:30
-Mineral,earth/fairy,3,7:50,5:55
-Bahlrawg,fire/earth/fairy,3,5:00,8:05
-Frost,frozen/fairy,2,2:40,4:20
-Borealis,fairy/frozen,2,7:05,11:30
-Grotto,water/fairy,2,1:40,2:40
-Dewdrop,fairy/water,2,5:40,9:15
-Oracle,epic,4,24:00,28:00
-Rainbow,rainbow,4,48:00,56:00
-Air,air,1,12:00,19:30
-Paradise,fire/air,2,2:30,4:05
-Canopy,jungle/air,2,1:10,1:50
-Sonar,air/jungle,2,0:50,1:20
-Tumbleweed,earth/air,2,6:55,11:30
-Badlands,air/earth,2,16:30,57:00:00
-Rime,frozen/air,2,5:05,8:15
-Mistral,air/frozen,2,14:00,22:30
-Whirlpool,water/air,2,3:05,11:00
-Mist,air/water,2,11:00,18:00
-Knarr,water/air/frozen,3,9:15,6:55
-Wink,fairy/air,2,6:25,10:30
-Gossamer,air/fairy,2,2:10,7:40
-Cavern,fairy/frozen/air,3,12:30,9:20
-Petroglyph,epic,4,24:00,28:00
-Plumed,rainbow,4,48:00,56:00
-Wisteria,dragonsai,4,,
-Deadwood,dragonsai,4,,
-North,epic,4,19:37,19:34
-South,epic,4,19:19,13:04
-East,epic,4,6:02,19:39
-West,epic,4,,
-Bountiful,bountiful,4,23:00,24:00
-Festive,frozen/jungle/earth,3,12:25,12:31
-Kraken,sunken,4,36:00,42:00
-Eve,frozen/fire/water,3,20:17,
+name,elements,stars,breedingTime,enchantedBreedingTime,breedable,breedsAs
+Fire,fire,1,30m,50m,1,
+Jungle,jungle,1,20m,2m,1,
+Wildfire,fire/jungle,2,20m,30m,1,
+Flytrap,jungle/fire,2,25m,45m,1,
+Venom,fire/jungle,3,45m,1h 10m,1,
+Earth,earth,1,10m,10m,1,
+Thermal,fire/earth,2,4h,6h 30m,1,
+Magma,earth/fire,2,2h 45m,4h 25m,1,
+Oasis,jungle/earth,2,1h 55m,3h 05m,1,
+Underbrush,earth/jungle,2,1h 25m,2h 15m,1,
+Cinder,fire/earth/jungle,3,2h 05m,1h 35m,1,
+Frozen,frozen,1,1h,1h 40m,1,
+Frostburn,fire/frozen,2,3h,4h 55m,1,
+Thaw,frozen/fire,2,2h,3h 15m,1,
+Alpine,jungle/frozen,2,1h 25m,2h 15m,1,
+Fir,frozen/jungle,2,1h,1h 40m,1,
+Wooly,earth/frozen,2,8h 30m,14h,1,
+Tundra,frozen/earth,2,12h,19h 30m,1,
+Water,water,1,4h,6h 30m,1,
+Geyser,fire/water,2,1:55,3:10,1,
+Newt,water/fire,2,1:15,2:00,1,
+Fern,jungle/water,2,0:50,1:25,1,
+Tropical,water/jungle,2,0:40,1:00,1,
+Canyon,earth/water,2,5:10,8:30,1,
+Dune,earth/water,3,11:30,18:30,1,
+Shore,water/earth,2,9:20,15:00,1,
+Fossil,earth/water/frozen,3,15:30,25:00:00,1,
+Polar,water/frozen,2,7:30,12:00,1,
+Totem,ancient,4,24:00:00,28:00:00,1,
+Hieroglyph,ancient,4,24:00:00,28:00:00,1,
+Kaiju,sunken,4,36:00:00,42:00:00,1,earth/water/fire
+Fairy,fairy,1,6:00,9:45,1,
+Imp,fire/fairy,2,0:50,1:25,1,
+Foxglow,fairy/fire,2,4:40,7:35,1,
+Glade,jungle/fairy,2,0:25,0:45,1,
+Iris,fairy/jungle,2,8:50,13:15,1,
+Labyrinth,earth/fairy,2,3:35,5:55,1,
+Elfin,fairy/earth,2,8:25,13:30,1,
+Mineral,earth/fairy,3,7:50,5:55,1,
+Bahlrawg,fire/earth/fairy,3,5:00,8:05,1,
+Frost,frozen/fairy,2,2:40,4:20,1,
+Borealis,fairy/frozen,2,7:05,11:30,1,
+Grotto,water/fairy,2,1:40,2:40,1,
+Dewdrop,fairy/water,2,5:40,9:15,1,
+Oracle,ancient,4,24:00:00,28:00:00,1,
+Rainbow,rainbow,4,48:00:00,56:00:00,1,fire/earth/water/air
+Air,air,1,12:00,19:30,1,
+Paradise,fire/air,2,2:30,4:05,1,
+Canopy,jungle/air,2,1:10,1:50,1,
+Sonar,air/jungle,2,0:50,1:20,1,
+Tumbleweed,earth/air,2,6:55,11:30,1,
+Badlands,air/earth,2,16:30,57:00:00,1,
+Rime,frozen/air,2,5:05,8:15,1,
+Mistral,air/frozen,2,14:00,22:30,1,
+Whirlpool,water/air,2,3:05,11:00,1,
+Mist,air/water,2,11:00,18:00,1,
+Knarr,water/air/frozen,3,9:15,6:55,1,
+Wink,fairy/air,2,6:25,10:30,1,
+Gossamer,air/fairy,2,2:10,7:40,1,
+Cavern,fairy/frozen/air,3,12:30,9:20,1,
+Petroglyph,ancient,4,24:00:00,28:00:00,1,
+Plumed,rainbow,4,48:00:00,56:00:00,1,fire/earth/water/air
+North,ancient,4,19:37,19:34,0,
+South,ancient,4,19:19,13:04,0,
+East,ancient,4,6:02,19:39,0,
+West,ancient,4,,,1,
+Bountiful,bountiful,4,23:00,24:00:00,0,
+Festive,frozen/jungle/earth,3,12:25,12:31,0,
+Kraken,sunken,4,36:00:00,42:00:00,1,
+Eve,frozen/fire/water,3,20:17,,0,
